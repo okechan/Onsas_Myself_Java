@@ -9,17 +9,33 @@
     tools:context=".Asy_pro">
 
     <TextView
+        android:id="@+id/text0"
         android:layout_width="match_parent"
-        android:layout_height="294dp"
-        android:text="fragment2" />
+        android:layout_height="44dp"
+        android:text="今の天気" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="172dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:text="天気の概要" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="162dp"
+        android:layout_height="134dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

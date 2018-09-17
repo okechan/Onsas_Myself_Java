@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import retrofit.RestAdapter;
@@ -17,7 +18,9 @@ import rx.schedulers.Schedulers;
 public class Main2Fragment extends Fragment{
     private TextView textview;
     private Asy_pro Ap;
+    private Japanese_changer Jc;
     public String str;
+    public String str2;
     RestAdapter adapter;
 
 
@@ -27,6 +30,7 @@ public class Main2Fragment extends Fragment{
         View v = inflater.inflate(R.layout.fragment_main2, container, false);
         Ap = new Asy_pro();
         adapter = Ap.Asch_rest();
+        Jc = new Japanese_changer();
       //  str="Clouds";
         return v;
     }
@@ -53,8 +57,13 @@ public class Main2Fragment extends Fragment{
                     public void onNext(Entity weather) {
                         Log.d("MainActivity", "onNext()");
                         if (weather != null) {
-                            ((TextView)view.findViewById(R.id.text2)).setText(weather.weather.get(0).description);
-
+                            str=weather.weather.get(0).main;
+                            str=Jc.main_weather(str);
+                            ((TextView)view.findViewById(R.id.text1)).setText(str);
+                            str2=weather.weather.get(0).description;
+                            str2=Jc.description(str2);
+                            ((TextView)view.findViewById(R.id.text2)).setText(str2);
+                            ((TextView)view.findViewById(R.id.text4)).setText(weather.weather.get(0).icon);
                         }
                     }
                 });
